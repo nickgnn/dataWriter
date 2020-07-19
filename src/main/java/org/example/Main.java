@@ -27,7 +27,7 @@ public class Main {
         //открытие connection
         String username = "root";
         String password = "root";
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ri_tape_2?useSSL=false", username, password);
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ri_tape?useSSL=false", username, password);
 
         //добавляем сделки в базу
         for (int i = 0; i < maps.size(); i++) {
@@ -38,7 +38,7 @@ public class Main {
             int quantity = Integer.valueOf(String.valueOf(maps.get(i).get("quantity")));
             String direction = String.valueOf(maps.get(i).get("direction"));
 
-            String query = "INSERT INTO `ri_tape_2`.`deals` (`number`, `date`, `time`, `price`, `quantity`, `direction`) VALUES (?, ?, ?, ?, ?, ?);";
+            String query = "INSERT INTO `ri_tape`.`deals` (`number`, `date`, `time`, `price`, `quantity`, `direction`) VALUES (?, ?, ?, ?, ?, ?);";
 
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setLong(1, number);
